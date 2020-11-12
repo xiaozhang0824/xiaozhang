@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bw.mapper.GoodsMapper">
+
+    <select id="getGoodsList" resultType="goods">
+		select g.*,t.tname
+        from goods g
+        left join type t on g.tid = t.tid
+	</select>
+
+    <select id="getGoodsByGid" resultType="goods" parameterType="goods">
+    select  * from  goods g where  g.gid = #{gid}
+    </select>
+
+
+</mapper>
